@@ -43,6 +43,8 @@ const SearchBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const {games, setGames, searchGames} = useSearchGames();
 
+    const lengthCheck = games && games.length > 0;
+
     const handleClose = () => {
         setIsOpen(false);
     }
@@ -76,19 +78,19 @@ const SearchBar = () => {
                 placeholder='Название игры'
                 onFocus={() => setIsOpen(true)}
             />
-            {games && games.length > 0 && (
+            {lengthCheck && (
                 <ClearButton onClick={handleClearInput}>&#xd7;</ClearButton>
             )}
-            {games && games.length > 0 && (
+            {lengthCheck && (
                 <SearchDropDown
                     onClose={handleClose}
                     onClearInput={handleClearInput}
                     games={games}
                 />
             )}
-            {games && games.length > 0 && (
+            {lengthCheck && (
                 <SearchModal>
-                    <SearchDropDownPortal onClearInput={handleClearInput} games={games} />
+                    <SearchDropDownPortal onClearInput={handleClearInput} games={games}/>
                 </SearchModal>
             )}
         </SearchContainer>
