@@ -4,9 +4,6 @@ const useSearchGames = () => {
     const [games, setGames] = useState([]);
 
     const searchGames = React.useCallback(async (query) => {
-        if (query === '') {
-            return [];
-        }
 
         const url = `https://api.rawg.io/api/games?search=${query}&key=${process.env.NEXT_PUBLIC_MY_API_KEY}`
 
