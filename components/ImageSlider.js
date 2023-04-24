@@ -52,7 +52,6 @@ const settings = {
 };
 
 const ImageSlider = ({images}) => {
-
     return (
         <StyledSlider {...settings}>
             {images.map((image) => (

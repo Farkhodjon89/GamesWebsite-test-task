@@ -88,7 +88,7 @@ const SearchBar = () => {
             )}
             {games && games.length > 0 && (
                 <SearchModal>
-                    <SearchDropDownPortal games={games} />
+                    <SearchDropDownPortal onClearInput={handleClearInput} games={games} />
                 </SearchModal>
             )}
         </SearchContainer>

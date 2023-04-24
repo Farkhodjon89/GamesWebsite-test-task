@@ -24,13 +24,13 @@ const StyledName = styled.p`
   margin-left: 20px;
 `
 
-const SearchDropDownPortal = ({games}) => {
+const SearchDropDownPortal = ({games, onClearInput}) => {
 
     return (
         <StyledList>
             {games.map(({id, name, background_image}) => (
                 <Link key={id} href={`/game/${id}`}>
-                    <StyledItem>
+                    <StyledItem onClick={onClearInput}>
                         {background_image ? (
                             <Image src={background_image} width={50} height={50} alt={name}/>
                         ) : null}
